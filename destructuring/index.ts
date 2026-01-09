@@ -44,6 +44,10 @@ printPerson(ralf);
 
 // Spread operator (...)
 
+// Neues Objekt mit zusätzlichen Infos erzeugen
+
+// OHNE Spread Operator:
+
 // const ralfWithCreditCard = {
 //   firstName: ralf.firstName,
 //   lastName: ralf.lastName,
@@ -53,13 +57,17 @@ printPerson(ralf);
 //   creditCard: "12345678",
 // };
 
-const ralfWithCreditCard = ralf;
-ralfWithCreditCard.creditCard = "123456";
+// MIT Spread Operator:
 
-// const ralfWithCreditCard = {
-//   ...ralf,
-//   creditCard: "123456",
-// };
+const ralfWithCreditCard = {
+  ...ralf,
+  creditCard: "123456",
+};
+
+// Achtung Fallstrick: Das geht NICHT! (Reference Type)
+// const ralfWithCreditCard = ralf;
+// ralfWithCreditCard.creditCard = "123456";
+// ralfWithCreditCard und ralf "zeigen" auf das gleiche Objekt!
 
 console.log(ralfWithCreditCard);
 console.log(ralf);
