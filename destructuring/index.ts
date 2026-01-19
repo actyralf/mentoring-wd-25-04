@@ -1,9 +1,8 @@
 // Destructuring
 
 type Person = {
-  firstName: string;
-  lastName: string;
-  age: number;
+  name: string;
+  age?: number;
   hobbies: string[];
   address: {
     city: string;
@@ -11,9 +10,13 @@ type Person = {
   creditCard?: string;
 };
 
+type Product = {
+  name: string;
+  price: number;
+};
+
 const ralf: Person = {
-  firstName: "Ralf",
-  lastName: "Siewert",
+  name: "Ralf",
   age: 57,
   hobbies: ["piano", "chess"],
   address: {
@@ -21,10 +24,34 @@ const ralf: Person = {
   },
 };
 
-function printPerson({ firstName, lastName, age }: Person): void {
-  console.log(firstName + " " + lastName);
+const product: Product = {
+  name: "Socken",
+  price: 12,
+};
+
+function printPerson({ name, age }: Person): void {
+  // const { name, age } = person;
+  // const firstName = person.firstName;
+  // const lastName = person.lastName;
+  // const age = person.age;
+
+  console.log(name);
   console.log("Alter: " + age);
+
+  console.log(name + " hat " + name + " gekauft");
 }
+
+// alias:
+
+const { age: personAge } = ralf;
+
+// default value und nested properties:
+
+const {
+  address: { city = "Unbekannte Stadt" },
+} = ralf;
+
+printPerson(ralf);
 
 // Destructuring funktioniert auch mit Arrays, wird aber sehr selten angewendet:
 
@@ -39,8 +66,6 @@ const [student1, student2, student3] = students;
 console.log(student1);
 console.log(student2);
 console.log(student3);
-
-printPerson(ralf);
 
 // Spread operator (...)
 
@@ -64,6 +89,13 @@ const ralfWithCreditCard = {
   creditCard: "123456",
 };
 
+const modifiedRalf = {
+  age: 47,
+  ...ralf,
+};
+
+console.log(modifiedRalf);
+
 // Achtung Fallstrick: Das geht NICHT! (Reference Type)
 // const ralfWithCreditCard = ralf;
 // ralfWithCreditCard.creditCard = "123456";
@@ -72,4 +104,65 @@ const ralfWithCreditCard = {
 console.log(ralfWithCreditCard);
 console.log(ralf);
 
+function Card(userStyle: any) {
+  const style = {
+    backgroundColor: "red",
+    width: 100,
+    height: 100,
+  };
+
+  const combinedStyle = {
+    ...style,
+    ...userStyle,
+  };
+
+  // {
+  //    backgroundColor: "red",
+  //   width: 50,
+  //   height: 100,
+  // }
+
+  // render div with some styles
+  // <div style={style}>...</div>
+}
+
+Card({ width: 50 });
+
 // Rest operator (...)
+
+const extendedRalf = { ...ralf, car: "Volvo" };
+
+const { creditCard, ...ralfWithoutCreditCard } = ralfWithCreditCard;
+const { age, hobbies, ...ralfWithoutAge } = ralfWithCreditCard;
+
+console.log(ralfWithoutCreditCard);
+console.log(ralfWithoutAge);
+
+// type int_or_str = { int:number} | { str: string};
+// function f( {int}: int_or_str){ /* body */}
+// function f( {str}: int_or_str){ /* body */}
+
+console.log(4);
+console.log("4");
+
+function addTwoNumbers(a: string | number, b: string | number): number {
+  let valueA;
+  let valueB;
+  if (typeof a === "string") {
+    valueA = Number(a);
+  } else {
+    valueA = a;
+  }
+  if (typeof b === "string") {
+    valueB = Number(b);
+  } else {
+    valueB = b;
+  }
+  return valueA + valueB;
+}
+
+console.log(4 + 5);
+console.log("4" + "5");
+
+console.log(addTwoNumbers(4, 5));
+console.log(addTwoNumbers("4", "5"));
