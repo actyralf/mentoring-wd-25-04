@@ -15,3 +15,7 @@ Topics: Rest operator, code documentation, i18n, recap: expressions, statements 
 ## [Mentoring 23.01.2026](./README-2026-01-23.md)
 
 Topics: OOP recap (elevator demo), Higher Order Array Methods recap
+
+## [Mentoring 30.01.2026](./README-2026-01-30.md)
+
+Topics: REST APIs with Express
