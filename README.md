@@ -8,7 +8,7 @@ Topics: OOP, Classes, Inheritance & Polymorphism
 
 Topics: Recursive functions, reference types, destructuring, spread operator
 
-## [Mentoring 17.01.2026](./README-2026-01-17.md)
+## [Mentoring 16.01.2026](./README-2026-01-16.md)
 
 Topics: Rest operator, code documentation, i18n, recap: expressions, statements & operator
 
@@ -19,3 +19,5 @@ Topics: OOP recap (elevator demo), Higher Order Array Methods recap
 ## [Mentoring 30.01.2026](./README-2026-01-30.md)
 
 Topics: REST APIs with Express
+
+## [Mentoring ]
