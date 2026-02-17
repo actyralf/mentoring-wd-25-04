@@ -20,4 +20,10 @@ Topics: OOP recap (elevator demo), Higher Order Array Methods recap
 
 Topics: REST APIs with Express
 
-## [Mentoring ]
+## [Mentoring 06.02.2026](./README-2026-02-06.md)
+
+Topics: EJS Template engine for Express
+
+## [Mentoring 13.02.2026](./README-2026-02-13.md)
+
+Topics: JWT authentication
