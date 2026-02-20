@@ -27,3 +27,7 @@ Topics: EJS Template engine for Express
 ## [Mentoring 13.02.2026](./README-2026-02-13.md)
 
 Topics: JWT authentication
+
+## [Mentoring 20.02.2026](./README-2026-02-20.md)
+
+Topics: React State, Components & Props
